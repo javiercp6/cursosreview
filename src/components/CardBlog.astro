@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+type Props = CollectionEntry<"courses">["data"];
+
+const { heroImage, pubDate, title, description } = Astro.props;
+import FormattedDate from "../components/FormattedDate.astro";
+---
+
+<div class="lg:flex w-full max-w-2xl w" transition:name={title}>
+  <img
+    class="object-cover w-full h-56 rounded-lg lg:w-64"
+    src={heroImage}
+    alt=""
+  />
+
+  <div class="flex flex-col w-full justify-between py-6 lg:mx-6">
+    <h3
+      class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
+    >
+      {title}
+    </h3>
+
+    <span class="text-sm text-gray-500 dark:text-gray-300"
+      ><FormattedDate date={pubDate} /></span
+    >
+  </div>
+</div>

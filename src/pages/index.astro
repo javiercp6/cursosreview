@@ -1,0 +1,38 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import D from "../components/SectionD.astro";
+import Carrusel from "../components/Carrusel.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body
+    class="bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+  >
+    <Header class="" />
+    <main>
+      <!-- <div
+        class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      >
+      </div> -->
+      <SectionContainer>
+        <Hero />
+      </SectionContainer>
+      <SectionContainer>
+        <Carrusel />
+      </SectionContainer>
+      <SectionContainer class="my-28">
+        <D />
+      </SectionContainer>
+    </main>
+    <Footer />
+  </body>
+</html>

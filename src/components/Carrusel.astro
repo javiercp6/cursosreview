@@ -1,0 +1,74 @@
+---
+import CardCourse from "../components/CardCourse.astro";
+import { getCollection } from "astro:content";
+const post = await getCollection("courses", ({ data }) => {
+  return data.showHome === true;
+});
+/* const post = [
+  {
+    title: "Primer curso",
+    description: "Lorem ipsum dolor sit amet",
+    pubDate: "Jul 08 2022",
+    heroImage: "/blog-placeholder-3.jpg",
+    category: "tecnologia",
+  },
+  {
+    title: "Primer curso",
+    description: "Lorem ipsum dolor sit amet",
+    pubDate: "Jul 08 2022",
+    heroImage: "/blog-placeholder-3.jpg",
+    category: "tecnologia",
+  },
+  {
+    title: "Primer curso",
+    description: "Lorem ipsum dolor sit amet",
+    pubDate: "Jul 08 2022",
+    heroImage: "/blog-placeholder-3.jpg",
+    category: "tecnologia",
+  },
+  {
+    title: "Primer curso",
+    description: "Lorem ipsum dolor sit amet",
+    pubDate: "Jul 08 2022",
+    heroImage: "/blog-placeholder-3.jpg",
+    category: "tecnologia",
+  },
+]; */
+---
+
+<div class="flex justify-end px-3 md:px-6">
+  <a
+    href="/courses"
+    class="inline-flex items-center justify-center px-4 py-1 mt-6 text-gray-700 transition-colors duration-300 transform bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-100 dark:text-white sm:w-auto dark:hover:bg-gray-800 dark:ring-gray-700 focus:ring focus:ring-gray-200 focus:ring-opacity-80"
+  >
+    Ver todos
+    <svg
+      class="size-5 pl-1"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M5 12l14 0"></path><path d="M13 18l6 -6"></path><path d="M13 6l6 6"
+      ></path></svg
+    >
+  </a>
+</div>
+<div
+  class="flex gap-4 w-full snap-x overflow-x-auto whitespace-nowrap p-3 md:p-6"
+>
+  {
+    post.map((g) => {
+      return (
+        <a href={`/courses/${g.slug}`}>
+          <CardCourse {...g.data} slug={g.slug} />
+        </a>
+      );
+    })
+  }
+</div>

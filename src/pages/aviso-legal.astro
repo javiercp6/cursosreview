@@ -1,0 +1,28 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection, getEntry } from "astro:content";
+
+const entry = await getEntry("legal", "legal");
+const { Content } = await entry.render();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header class="dark:bg-gray-800 bg-white" />
+    <main class="dark:bg-gray-950 bg-gray-200 min-h-screen">
+      <section
+        class="w-full max-w-screen-xl mx-auto px-2 md:px-4 prose dark:prose-invert py-6"
+      >
+        <Content />
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

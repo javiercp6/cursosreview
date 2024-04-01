@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import BackLink from "../components/BackLink.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body>
+    <Header class="dark:bg-gray-800 bg-white" />
+    <main class="dark:bg-gray-950 bg-gray-200">
+      <article class="max-w-3xl mx-auto p-2" transition:name={title}>
+        <BackLink />
+        <h1
+          class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl py-3"
+        >
+          Open-sourcing our progress on Tailwind CSS&nbsp;v4.0
+        </h1>
+        <p class="text-sm dark:text-white">{updatedDate}</p>
+        <div class="text-sm py-3 dark:text-white">
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <div class="hero-image">
+          {
+            heroImage && (
+              <img
+                width={1020}
+                height={510}
+                src={heroImage}
+                alt=""
+                class="rounded-2xl"
+              />
+            )
+          }
+        </div>
+        <p>{description}</p>
+        <div class="prose dark:prose-invert max-w-none">
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

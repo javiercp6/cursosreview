@@ -1,0 +1,73 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import CardBlog from "../../components/CardBlog.astro";
+import Pagination from "../../components/Pagination.astro";
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (await getCollection("blog")).sort(
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  );
+  // Genera páginas para nuestro array de astronautas, con 2 elementos por página
+  return paginate(posts, { pageSize: 2 });
+}
+// Todos los datos paginados se pasan en la prop "page"
+const { page } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header class="dark:bg-gray-800 bg-white" />
+    <main class="dark:bg-gray-950 bg-gray-200 min-h-screen">
+      <section class="w-full max-w-screen-xl mx-auto px-2 md:px-4">
+        <!-- {
+          posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}/`}>
+              <img
+              width={720}
+              height={360}
+              src={post.data.heroImage}
+              alt=""
+              />
+              <h4 class="title">{post.data.title}</h4>
+              <p class="date">
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+            </a>
+          </li>
+          ))
+        } -->
+        <ul
+          class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 justify-items-center py-10"
+        >
+          {
+            page.data.map((post) => (
+              <li class="w-full">
+                <a href={`/blog/${post.slug}/`} class="">
+                  <CardBlog {...post.data} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="flex justify-center">
+          {
+            page.url.prev || page.url.next ? (
+              <Pagination nextUrl={page.url.next} prevUrl={page.url.prev} />
+            ) : null
+          }
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

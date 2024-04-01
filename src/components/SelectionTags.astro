@@ -1,0 +1,25 @@
+---
+import { tags } from "../consts";
+const { pathname } = Astro.url;
+const { href, class: className, ...props } = Astro.props;
+const subpath = pathname.match(/[^\/]+/g);
+const isActive = pathname.split("/")[2];
+---
+
+<div
+  class="flex gap-4 p-4 pb-2 w-full snap-x overflow-x-auto whitespace-nowrap"
+>
+  {
+    tags.map((t) => (
+      <a
+        href={`/courses/${t}/1`}
+        class:list={[
+          { "text-purple-600 dark:text-purple-800": isActive === t },
+        ]}
+        class="inline-flex capitalize items-center text- text-sm justify-center px-2 py-1 mt-6 text-gray-700 transition-colors duration-300 transform bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-100 dark:text-white sm:w-auto dark:hover:bg-gray-800 dark:ring-gray-700 focus:ring focus:ring-gray-200 focus:ring-opacity-80"
+      >
+        {t}
+      </a>
+    ))
+  }
+</div>

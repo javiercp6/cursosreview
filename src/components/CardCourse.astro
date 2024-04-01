@@ -1,0 +1,125 @@
+---
+/* interface Props {
+  img: string;
+  title: string;
+  category: string;
+  description: string;
+  pubDate: string;
+  heroImage: string;
+} */
+import type { CollectionEntry } from "astro:content";
+type Props = CollectionEntry<"courses">["data"] & { slug: string };
+
+const { heroImage, category, title, description, slug } = Astro.props;
+---
+
+<div
+  class="max-w-full w-full overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 hover:scale-105 transition-all cursor-pointer min-w-60"
+  transition:name={title}
+>
+  <img
+    class="object-cover w-full h-56"
+    src="/blog-placeholder-3.jpg"
+    alt="Article"
+  />
+
+  <div class="px-4 py-2">
+    <div>
+      <span
+        class="text-xs font-medium text-purple-700 uppercase dark:text-purple-700"
+        >{category}</span
+      >
+      <div
+        class="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600"
+        tabindex="0"
+      >
+        {title}
+      </div>
+      <div class="overflow-hidden">
+        <p class="mt-2 text-sm h-14 text-gray-600 dark:text-gray-400">
+          {description}
+        </p>
+      </div>
+      <div class="flex pt-3">
+        <div class="w-full">
+          <a
+            href="/rr"
+            class="inline-flex items-center justify-center px-2 text-xs py-0.5 overflow-hidden text-white transition-colors duration-300 bg-purple-800 rounded-lg shadow hover:bg-purple-600 focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-5"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-eye"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path><path
+                d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+              ></path></svg
+            >
+
+            <span class="mx-2"> Ver oferta </span>
+          </a>
+        </div>
+        <div class="flex justify-end w-full h-min">
+          <a
+            href={`/courses/${slug}`}
+            class="inline-flex items-center justify-center px-2 py-0.5 text-xs text-gray-700 transition-colors duration-300 transform bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-100 dark:text-white sm:w-auto dark:hover:bg-gray-800 dark:ring-gray-700 focus:ring focus:ring-gray-200 focus:ring-opacity-80"
+          >
+            Detalles
+            <svg
+              class="size-5 pl-1"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M5 12l14 0"></path><path d="M13 18l6 -6"></path><path
+                d="M13 6l6 6"></path></svg
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="mt-4">
+      <div class="flex items-center">
+        <button
+          class="bg-white flex items-center text-gray-700 dark:text-gray-300 justify-center gap-x-2 text-xs sm:xs dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg hover:bg-gray-100 duration-300 transition-colors border px-4 py-1"
+        >
+          <span>Ver</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div> -->
+  </div>
+</div>
+<style>
+  .truncate-line-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* número de líneas a mostrar */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
