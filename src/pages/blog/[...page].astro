@@ -3,12 +3,12 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import CardBlog from "../../components/CardBlog.astro";
 import Pagination from "../../components/Pagination.astro";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: any) {
   const posts = (await getCollection("blog")).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
   );
@@ -16,6 +16,27 @@ export async function getStaticPaths({ paginate }) {
   return paginate(posts, { pageSize: 2 });
 }
 // Todos los datos paginados se pasan en la prop "page"
+
+type Data = CollectionEntry<"blog">;
+interface Page<T = any> {
+  data: T[];
+  start: number;
+  end: number;
+  total: number;
+  currentPage: number;
+  size: number;
+  lastPage: number;
+  url: {
+    current: string;
+
+    prev: string | undefined;
+
+    next: string | undefined;
+  };
+}
+interface Props {
+  page: Page<Data>;
+}
 const { page } = Astro.props;
 ---
 
@@ -28,24 +49,7 @@ const { page } = Astro.props;
     <Header class="dark:bg-gray-800 bg-white" />
     <main class="dark:bg-gray-950 bg-gray-200 min-h-screen">
       <section class="w-full max-w-screen-xl mx-auto px-2 md:px-4">
-        <!-- {
-          posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.slug}/`}>
-              <img
-              width={720}
-              height={360}
-              src={post.data.heroImage}
-              alt=""
-              />
-              <h4 class="title">{post.data.title}</h4>
-              <p class="date">
-                <FormattedDate date={post.data.pubDate} />
-              </p>
-            </a>
-          </li>
-          ))
-        } -->
+        {page}
         <ul
           class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 justify-items-center py-10"
         >

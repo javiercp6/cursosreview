@@ -7,16 +7,13 @@ import CardCourse from "../../../components/CardCourse.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../../consts";
 import Pagination from "../../../components/Pagination.astro";
 import { tags } from "../../../consts";
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: any) {
   const allTags = ["rojo", "azul", "tecnologia"];
   const posts = (await getCollection("courses")).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
   );
-  // Para cada etiqueta, devuelve un resultado de paginate().
-  // Asegúrate de pasar `{params: {tag}}` a `paginate()`
-  // Así Astro sabrá qué agrupación de etiquetas usar.
   return tags.flatMap((tag) => {
     const filteredPosts = posts.filter((post) => post.data.category === tag);
     return paginate(filteredPosts, {
@@ -25,8 +22,27 @@ export async function getStaticPaths({ paginate }) {
     });
   });
 }
+type Data = CollectionEntry<"courses">;
+interface Page<T = any> {
+  data: T[];
+  start: number;
+  end: number;
+  total: number;
+  currentPage: number;
+  size: number;
+  lastPage: number;
+  url: {
+    current: string;
+
+    prev: string | undefined;
+
+    next: string | undefined;
+  };
+}
+interface Props {
+  page: Page<Data>;
+}
 const { page } = Astro.props;
-const params = Astro.params;
 ---
 
 <!doctype html>

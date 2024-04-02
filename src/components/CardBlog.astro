@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-type Props = CollectionEntry<"courses">["data"];
+type Props = CollectionEntry<"blog">["data"];
 
 const { heroImage, pubDate, title, description } = Astro.props;
 import FormattedDate from "../components/FormattedDate.astro";

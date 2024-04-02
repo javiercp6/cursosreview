@@ -4,36 +4,6 @@ import { getCollection } from "astro:content";
 const post = await getCollection("courses", ({ data }) => {
   return data.showHome === true;
 });
-/* const post = [
-  {
-    title: "Primer curso",
-    description: "Lorem ipsum dolor sit amet",
-    pubDate: "Jul 08 2022",
-    heroImage: "/blog-placeholder-3.jpg",
-    category: "tecnologia",
-  },
-  {
-    title: "Primer curso",
-    description: "Lorem ipsum dolor sit amet",
-    pubDate: "Jul 08 2022",
-    heroImage: "/blog-placeholder-3.jpg",
-    category: "tecnologia",
-  },
-  {
-    title: "Primer curso",
-    description: "Lorem ipsum dolor sit amet",
-    pubDate: "Jul 08 2022",
-    heroImage: "/blog-placeholder-3.jpg",
-    category: "tecnologia",
-  },
-  {
-    title: "Primer curso",
-    description: "Lorem ipsum dolor sit amet",
-    pubDate: "Jul 08 2022",
-    heroImage: "/blog-placeholder-3.jpg",
-    category: "tecnologia",
-  },
-]; */
 ---
 
 <div class="flex justify-end px-3 md:px-6">

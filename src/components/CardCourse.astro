@@ -1,12 +1,4 @@
 ---
-/* interface Props {
-  img: string;
-  title: string;
-  category: string;
-  description: string;
-  pubDate: string;
-  heroImage: string;
-} */
 import type { CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"courses">["data"] & { slug: string };
 
