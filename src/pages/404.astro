@@ -1,0 +1,65 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header class="dark:bg-gray-800 bg-white" />
+    <main class="dark:bg-gray-950 bg-gray-200 min-h-screen">
+      <section
+        class="w-full max-w-screen-xl mx-auto px-2 md:px-4 prose dark:prose-invert py-6"
+      >
+        <div
+          class="container flex items-center min-h-screen px-6 py-12 mx-auto"
+        >
+          <div class="flex flex-col items-center max-w-sm mx-auto text-center">
+            <h1
+              class="mb-4 text-4xl tracking-tight font-extrabold md:text-6xl xl:text-6xl"
+            >
+              404
+            </h1>
+            <h1
+              class="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl"
+            >
+              Página no encontrada
+            </h1>
+            <p class="mt-4 text-gray-500 dark:text-gray-400">
+              La página que busca no existe. Aquí tiene algunos enlaces útiles:
+            </p>
+
+            <div class="flex items-center mt-6 gap-x-3 shrink-0 w-auto">
+              <a
+                href="/"
+                class="flex items-center cursor-pointer justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 rtl:rotate-180"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path>
+                </svg>
+
+                <span>Inicio</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

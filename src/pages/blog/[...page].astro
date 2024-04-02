@@ -49,14 +49,13 @@ const { page } = Astro.props;
     <Header class="dark:bg-gray-800 bg-white" />
     <main class="dark:bg-gray-950 bg-gray-200 min-h-screen">
       <section class="w-full max-w-screen-xl mx-auto px-2 md:px-4">
-        {page}
         <ul
           class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 justify-items-center py-10"
         >
           {
             page.data.map((post) => (
               <li class="w-full">
-                <a href={`/blog/${post.slug}/`} class="">
+                <a href={`/blog/${post.slug}`} class="">
                   <CardBlog {...post.data} />
                 </a>
               </li>
