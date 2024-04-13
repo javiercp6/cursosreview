@@ -2,36 +2,32 @@
 import type { CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"courses">["data"] & { slug: string };
 
-const { heroImage, category, title, description, slug } = Astro.props;
+const { heroImage, category, title, slug } = Astro.props;
 ---
 
 <div
   class="max-w-full w-full overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 hover:scale-105 transition-all cursor-pointer min-w-60"
   transition:name={title}
 >
-  <img
-    class="object-cover w-full h-56"
-    src="/blog-placeholder-3.jpg"
-    alt="Article"
-  />
+  <img class="object-cover w-full h-56" src={heroImage} alt="Article" />
 
   <div class="px-4 py-2">
-    <div>
+    <div class="">
       <span
         class="text-xs font-medium text-purple-700 uppercase dark:text-purple-700"
         >{category}</span
       >
       <div
-        class="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600"
+        class="mt-2 truncate-line h-[84px] text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600"
         tabindex="0"
       >
         {title}
       </div>
-      <div class="overflow-hidden">
+      <!-- <div class="overflow-hidden">
         <p class="mt-2 text-sm h-14 text-gray-600 dark:text-gray-400">
           {description}
         </p>
-      </div>
+      </div> -->
       <div class="flex pt-3">
         <div class="w-full">
           <a
@@ -108,10 +104,11 @@ const { heroImage, category, title, description, slug } = Astro.props;
   </div>
 </div>
 <style>
-  .truncate-line-3 {
+  .truncate-line {
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* número de líneas a mostrar */
+    white-space: normal;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     overflow: hidden;
   }
 </style>
