@@ -18,16 +18,16 @@ const { title, description, pubDate, heroImage, category } = Astro.props;
 
   <body>
     <Header class="dark:bg-gray-800 bg-white" />
-    <main class="dark:bg-gray-950 bg-gray-200">
+    <main class="dark:bg-gray-950 bg-gray-200 pb-10">
       <article class="max-w-3xl mx-auto p-2" transition:name={title}>
         <BackLink />
         <h1
           class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl py-3"
         >
-          {title}
+          {title} - ¿Merece la pena?
         </h1>
         <span
-          class="text-sm font-medium text-blue-600 uppercase dark:text-blue-400"
+          class="text-sm font-medium text-purple-700 uppercase dark:text-purple-700"
           >{category}</span
         >
 
@@ -44,7 +44,6 @@ const { title, description, pubDate, heroImage, category } = Astro.props;
             )
           }
         </div>
-        <p>{description}</p>
         <div class="pt-6 prose dark:prose-invert max-w-none">
           <slot />
         </div>
