@@ -2,7 +2,7 @@
 title: 'WhatsApp Marketing: Rompe el HIELO y Transforma a tus FRÍOS Prospectos en CLIENTES fieles'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 pubDate: 'Jul 01 2022'
-heroImage: '/WhatsApp-marketing-rompe-el-hielo-y-transforma-tus-frios-prospectos-en-clientes-fieles.jpg'
+heroImage: '/whatsapp-marketing-rompe-el-hielo-y-transforma-tus-frios-prospectos-en-clientes-fieles.webp'
 category: 'tecnologia'
 showHome: true
 ---
