@@ -21,7 +21,7 @@ Es un equipo de profesionales en tecnología que busca impartir conocimiento y f
 * 86% de evaluaciones positivas
 * Certificado de conclusión
 * Garantía
-* Actualmenete tiene una oferta del 50% de descuento ([Ver oferta](https://www.genome.gov/))
+* Actualmente tiene una oferta del 50% de descuento ([Ver oferta](https://www.genome.gov/))
 
 ## Desventajas del curso
 
