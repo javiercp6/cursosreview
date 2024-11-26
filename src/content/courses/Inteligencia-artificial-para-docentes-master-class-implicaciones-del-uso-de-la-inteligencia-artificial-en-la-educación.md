@@ -1,6 +1,6 @@
 ---
 title: 'Inteligencia Artificial para Docentes + Master Class: Implicaciones del uso de la Inteligencia Artificial en la Educación'
-description: 'Lorem ipsum dolor sit amet ing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et mblandit massa. Cursus vitae congue mauris rhoncus. Accumsa tique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis'
+description: 'El objetivo de este curso es mantenerte actualizado y ayudarte aprender a utilizar de las nuevas tecnologías de Inteligencia Artificial de apoyo docente, las nuevas formas de evaluación y las políticas y lineamientos necesarios para un uso adecuado de la IA en el aula.'
 pubDate: 'Jul 08 2022'
 heroImage: '/Portada Curso IA Docentes + Master Class.webp'
 category: 'tecnologia'
@@ -21,7 +21,7 @@ Es un equipo de profesionales en tecnología que busca impartir conocimiento y f
 * 86% de evaluaciones positivas
 * Certificado de conclusión
 * Garantía
-* Actualmente tiene una oferta del 50% de descuento ([Ver oferta](https://www.genome.gov/))
+* Actualmente tiene una oferta del 50% de descuento ([Ver oferta](https://go.hotmart.com/T96758978N?ap=f4ab))
 
 ## Desventajas del curso
 
@@ -47,10 +47,10 @@ Tiene una garantía de 7 días
 
 ## Precio del curso
 
-El costo del curso es muy razonable en comparación con otros programas similares. Esto significa que no necesitas gastar una fortuna para adquirir habilidades valiosas. [Ver precio oficial](https://www.genome.gov/)
+El costo del curso es muy razonable en comparación con otros programas similares. Esto significa que no necesitas gastar una fortuna para adquirir habilidades valiosas. [Ver precio oficial](https://go.hotmart.com/T96758978N?dp=1)
 
 ## Opiniones finales del curso. ¿Merece la pena?
 
 En conclusión, este curso ha superado todas las expectativas. Desde la profundidad del contenido hasta la calidad de la enseñanza, cada aspecto del curso ha sido cuidadosamente diseñado para proporcionar a los estudiantes una experiencia de aprendizaje excepcional.
 
-Si eres docente, profesor o maestro de cualquier nivel educativo o simplemente estás buscando mejorar tus habilidades, ampliar tus conocimientos o quieres aprender algo nuevo, este curso es la elección perfecta. No pierdas la oportunidad de aprender de los mejores en el campo. ¡Inscríbete hoy y da el primer paso hacia tu crecimiento personal y profesional! [¡Haz clic aquí para adquirirlo ahora!](https://www.genome.gov/)
+Si eres docente, profesor o maestro de cualquier nivel educativo o simplemente estás buscando mejorar tus habilidades, ampliar tus conocimientos o quieres aprender algo nuevo, este curso es la elección perfecta. No pierdas la oportunidad de aprender de los mejores en el campo. ¡Inscríbete hoy y da el primer paso hacia tu crecimiento personal y profesional! [¡Haz clic aquí para adquirirlo ahora!](https://go.hotmart.com/T96758978N?dp=1)
