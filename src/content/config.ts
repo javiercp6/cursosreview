@@ -27,6 +27,7 @@ const courses = defineCollection({
     //category: reference("categories"),
     category: z.string(),
     showHome: z.boolean(),
+    afiliateLink: z.string().optional(),
   }),
 });
 

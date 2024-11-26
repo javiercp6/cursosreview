@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 type Props = CollectionEntry<"courses">["data"] & { slug: string };
 
-const { heroImage, category, title, slug } = Astro.props;
+const { heroImage, category, title, slug, afiliateLink } = Astro.props;
 ---
 
 <div
@@ -31,7 +31,8 @@ const { heroImage, category, title, slug } = Astro.props;
       <div class="flex pt-3">
         <div class="w-full">
           <a
-            href="/rr"
+            href={afiliateLink}
+            target="_blank"
             class="inline-flex items-center justify-center px-2 text-xs py-0.5 overflow-hidden text-white transition-colors duration-300 bg-purple-800 rounded-lg shadow hover:bg-purple-600 focus:ring focus:ring-blue-300 focus:ring-opacity-80"
           >
             <svg

@@ -5,6 +5,7 @@ pubDate: 'Jul 08 2022'
 heroImage: '/Portada Curso IA Docentes + Master Class.webp'
 category: 'tecnologia'
 showHome: true
+afiliateLink: 'https://go.hotmart.com/T96758978N?dp=1'
 ---
 ## ¿Cual es el objetivo del curso?
 
