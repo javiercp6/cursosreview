@@ -8,7 +8,8 @@ import BackLink from "../components/BackLink.astro";
 
 type Props = CollectionEntry<"courses">["data"];
 
-const { title, description, pubDate, heroImage, category } = Astro.props;
+const { title, description, pubDate, heroImage, category, afiliateLink } =
+  Astro.props;
 ---
 
 <html lang="en">
@@ -21,17 +22,19 @@ const { title, description, pubDate, heroImage, category } = Astro.props;
     <main class="dark:bg-gray-950 bg-gray-200 pb-10">
       <article class="max-w-3xl mx-auto p-2" transition:name={title}>
         <BackLink />
-        <h1
-          class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl py-3"
-        >
-          {title} - ¿Merece la pena?
-        </h1>
+        <a target="_blank" href={afiliateLink}>
+          <h1
+            class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl py-3"
+          >
+            {title} - ¿Merece la pena?
+          </h1>
+        </a>
         <span
           class="text-sm font-medium text-purple-700 uppercase dark:text-purple-700"
           >{category}</span
         >
 
-        <div class="hero-image pt-1">
+        <a href={afiliateLink} target="_blank" class="hero-image pt-1">
           {
             heroImage && (
               <img
@@ -43,8 +46,10 @@ const { title, description, pubDate, heroImage, category } = Astro.props;
               />
             )
           }
-        </div>
-        <div class="pt-6 prose dark:prose-invert max-w-none">
+        </a>
+        <div
+          class="pt-6 prose dark:prose-invert max-w-none prose-a:text-yellow-600 dark:prose-a:text-yellow-300"
+        >
           <slot />
         </div>
       </article>
