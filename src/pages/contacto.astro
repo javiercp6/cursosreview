@@ -1,0 +1,161 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection, getEntry } from "astro:content";
+import Mail from "../components/icon/Mail.astro";
+import Instagram from "../components/icon/Instagram.astro";
+import Youtube from "../components/icon/Youtube.astro";
+
+const entry = await getEntry("contacto", "sobre-nosotros");
+const { Content } = await entry.render();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header class="dark:bg-gray-800 bg-white" />
+    <main
+      class="dark:bg-gray-950 bg-gray-200 min-h-screen flex flex-col justify-center"
+    >
+      <section
+        class="w-full max-w-screen-xl mx-auto px-2 md:px-4 flex justify-center h-full"
+      >
+        <div class="flex gap-4 flex-wrap my-auto w-full">
+          <div class="md:flex-1 w-full space-y-5 dark:text-gray-200">
+            <div>
+              <h2 class="font-semibold text-3xl">Contáctanos</h2>
+              <p>
+                ¿Tienes alguna pregunta, sugerencia o simplemente quieres
+                compartir tus opiniones sobre un curso? Estamos aquí para
+                escucharte. Completa el formulario o utiliza los medios de
+                contacto que te dejamos a continuación, ¡te responderemos lo
+                antes posible!
+              </p>
+            </div>
+            <a
+              href="mailto:info.cursosreview@gmail.com"
+              target="_blank"
+              class="flex gap-2"
+            >
+              <Mail />
+              <span>info.cursosreview@gmail.com</span>
+            </a>
+            <div class="flex gap-2">
+              <a
+                href="https://www.instagram.com/cursosreview_oficial1/"
+                target="_blank"
+              >
+                <Instagram class="dark:text-gray-200 size-9" />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCmmqv0DG_9pX2nmZiQ1xu6w/"
+                target="_blank"
+              >
+                <Youtube class="dark:text-gray-200 size-9" />
+              </a>
+            </div>
+          </div>
+          <form class="md:flex-1 w-full space-y-2" id="form">
+            <input
+              type="text"
+              id="name"
+              required
+              placeholder="Nombre"
+              class="w-full px-2 py-2 rounded-md border-gray-200 focus:border-purple-700 focus:outline-none dark:focus:outline-none border shadow-sm sm:text-sm dark:bg-gray-900 dark:text-gray-200"
+            />
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="Email"
+              class="w-full px-2 py-2 rounded-md focus:border-purple-700 focus:outline-none border shadow-sm sm:text-sm dark:bg-gray-900 dark:text-gray-200"
+            />
+            <textarea
+              id="message"
+              rows="5"
+              required
+              placeholder="Mensaje"
+              class="w-full px-2 py-2 rounded-md focus:border-purple-700 focus:outline-none border shadow-sm sm:text-sm dark:bg-gray-900 dark:text-gray-200"
+            ></textarea>
+            <button id="btn-form" type="submit" class="w-full">
+              <div
+                class="inline-flex items-center justify-center px-4 text-xs py-2 w-full overflow-hidden text-white transition-colors duration-300 bg-purple-800 rounded-lg shadow hover:bg-purple-600 focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+              >
+                <span id="text-btn " class="mx-2">Enviar</span>
+              </div>
+            </button>
+            <span id="text-alert" class=""></span>
+          </form>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+<script>
+  const form = document.getElementById("form");
+  form?.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const name = document.getElementById("name") as HTMLInputElement;
+    const email = document.getElementById("email") as HTMLInputElement;
+    const message = document.getElementById("message") as HTMLInputElement;
+    const btn = document.getElementById("btn-form") as HTMLButtonElement;
+    const textBtn = document.getElementById("text-btn") as HTMLSpanElement;
+    //const loader = document.getElementById("svg-loader");
+    btn.disabled = true;
+    name.disabled = true;
+    email.disabled = true;
+    message.disabled = true;
+    //textBtn.textContent = "Enviando";
+
+    const onAlert = (isError: boolean = false) => {
+      const textAlert = document.getElementById(
+        "text-alert"
+      ) as HTMLSpanElement;
+      textAlert.classList.remove("hidden");
+      textAlert.textContent = isError
+        ? "Hubo un error al enviar el formulario."
+        : "¡Formulario enviado con éxito!";
+      textAlert.classList.add(isError ? "text-red-500" : "text-green-500");
+      setTimeout(() => {
+        textAlert.classList.add("hidden");
+      }, 4000);
+    };
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/info.cursosreview@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: name?.value,
+            email: email?.value,
+            message: message?.value,
+          }),
+        }
+      );
+      if (!response.ok) {
+        onAlert(true);
+      } else {
+        onAlert();
+      }
+    } catch (error) {
+      onAlert(true);
+    } finally {
+      btn.disabled = false;
+      name.disabled = false;
+      email.disabled = false;
+      message.disabled = false;
+      //textBtn.textContent = "Enviar";
+      (event.target as HTMLFormElement).reset();
+    }
+  });
+</script>

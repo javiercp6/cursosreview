@@ -16,7 +16,7 @@ Según los términos incluidos en el artículo 22.2 de la Ley 34/2002 de Servici
 
 ### **Entidad Responsable**
 
-La entidad responsable de la recogida, procesamiento y utilización de tus datos personales, en el sentido establecido por la Ley de Protección de Datos Personales es la página Monitorec, propiedad de Javier Ceballo Perez – La habana, Cuba.
+La entidad responsable de la recogida, procesamiento y utilización de tus datos personales, en el sentido establecido por la Ley de Protección de Datos Personales es la página Cursosreview, propiedad de Javier Ceballo Perez – La habana, Cuba.
 
 ### **¿Qué son las cookies?**
 
