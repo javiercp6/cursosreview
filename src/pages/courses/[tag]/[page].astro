@@ -10,7 +10,6 @@ import { tags } from "../../../consts";
 import { type CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }: any) {
-  const allTags = ["rojo", "azul", "tecnologia"];
   const posts = (await getCollection("courses")).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
   );

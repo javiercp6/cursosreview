@@ -1,6 +1,6 @@
 ---
 title: 'Mega-curso-de-excel-(actualizado-2024)'
-description: 'Lorem ipsum dolor sit amet ing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et mblandit massa. Cursus vitae congue mauris rhoncus. Accumsa tique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis'
+description: 'El objetivo de este curso es capacitarte en el programa Microsoft Excel desde lo más básico hasta lo más avanzado en todas sus versiones y aplicaciones.'
 pubDate: 'Jul 08 2022'
 heroImage: '/mega-curso-de-excel-actualizado-2024.webp'
 category: 'tecnologia'
