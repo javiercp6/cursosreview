@@ -13,6 +13,13 @@ const tags = [...new Set(posts.map((post) => post.data.category.id))];
 <div
   class="flex gap-4 p-4 pb-2 w-full snap-x overflow-x-auto whitespace-nowrap"
 >
+  <a
+    href=`/courses/`
+    class:list={[{ "text-purple-600 dark:text-purple-800": isActive === "" }]}
+    class="inline-flex capitalize items-center text- text-sm justify-center px-2 py-1 mt-6 text-gray-700 transition-colors duration-300 transform bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:border-gray-700 hover:bg-gray-100 dark:text-white sm:w-auto dark:hover:bg-gray-800 dark:ring-gray-700 focus:ring focus:ring-gray-200 focus:ring-opacity-80"
+  >
+    Todos
+  </a>
   {
     tags.map((t) => (
       <a
