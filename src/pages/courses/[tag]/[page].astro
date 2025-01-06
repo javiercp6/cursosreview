@@ -6,18 +6,20 @@ import SelectionTags from "../../../components/SelectionTags.astro";
 import CardCourse from "../../../components/CardCourse.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../../consts";
 import Pagination from "../../../components/Pagination.astro";
-import { tags } from "../../../consts";
+//import { tags } from "../../../consts";
 import { type CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }: any) {
   const posts = (await getCollection("courses")).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
   );
+
+  const tags = posts.map((post) => post.data.category.id);
   return tags.flatMap((tag) => {
-    const filteredPosts = posts.filter((post) => post.data.category === tag);
+    const filteredPosts = posts.filter((post) => post.data.category.id === tag);
     return paginate(filteredPosts, {
       params: { tag },
-      pageSize: 2,
+      pageSize: 12,
     });
   });
 }

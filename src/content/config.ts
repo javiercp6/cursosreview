@@ -24,8 +24,8 @@ const courses = defineCollection({
     // Transform string to Date object
     pubDate: z.coerce.date(),
     heroImage: z.string().optional(),
-    //category: reference("categories"),
-    category: z.string(),
+    category: reference("categories"),
+    //category: z.string(),
     showHome: z.boolean(),
     afiliateLink: z.string().optional(),
   }),

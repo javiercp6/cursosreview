@@ -1,9 +1,13 @@
 ---
-import { tags } from "../consts";
+//import { tags } from "../consts";
 const { pathname } = Astro.url;
-const { href, class: className, ...props } = Astro.props;
+const { href, class: className, tag, ...props } = Astro.props;
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = pathname.split("/")[2];
+import { getCollection } from "astro:content";
+const posts = await getCollection("courses");
+
+const tags = [...new Set(posts.map((post) => post.data.category.id))];
 ---
 
 <div
