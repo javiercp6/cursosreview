@@ -4,7 +4,7 @@ description: 'Here is a sample of some basic Markdown syntax that can be used wh
 pubDate: 'Jul 01 2022'
 heroImage: '/whatsapp-marketing-rompe-el-hielo-y-transforma-tus-frios-prospectos-en-clientes-fieles.webp'
 category: 'tecnologia'
-showHome: true
+showHome: false
 ---
 ## ¿Cual es el objetivo del curso?
 
