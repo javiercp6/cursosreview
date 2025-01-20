@@ -4,7 +4,7 @@ description: 'El objetivo de este curso es capacitarte en el programa Microsoft 
 pubDate: 'Jul 08 2022'
 heroImage: '/mega-curso-de-excel-actualizado-2024.webp'
 category: 'tecnologia'
-showHome: true
+showHome: false
 afiliateLink: 'https://go.hotmart.com/J96795100U?dp=1'
 ---
 ## ¿Cual es el objetivo del curso?
